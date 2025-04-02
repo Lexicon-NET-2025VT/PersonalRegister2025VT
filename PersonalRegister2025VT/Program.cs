@@ -1,5 +1,6 @@
 ﻿
 
+
 namespace PersonalRegister2025VT
 {
     internal class Program
@@ -7,7 +8,8 @@ namespace PersonalRegister2025VT
         private static Payroll payroll = new Payroll();         
         static void Main(string[] args)
         {
-            bool isAlive = true; 
+            bool isAlive = true;
+            SeedData(); 
             do
             {
                 Console.WriteLine("1: Add employee" +
@@ -37,6 +39,12 @@ namespace PersonalRegister2025VT
 
         }
 
+        private static void SeedData()
+        {
+            payroll.AddEmployee("Kalle", 20000);
+            payroll.AddEmployee("Anna", 25000);
+            payroll.AddEmployee("Stefan", 28000);
+        }
 
         private static void AddEmployee()
         {
@@ -69,7 +77,8 @@ namespace PersonalRegister2025VT
         {
             foreach (Employee employee in payroll.GetEmployees())
             {
-                Console.WriteLine($"Name: {employee.Name} Salary: {employee.Salary}");
+                //Console.WriteLine($"Name: {employee.Name} Salary: {employee.Salary}");
+                Console.WriteLine(employee);
             }
         }
     }
