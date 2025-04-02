@@ -41,9 +41,18 @@ namespace PersonalRegister2025VT
         //    set { salary2 = value; }
         //}
         
+        public Droid(string name, int salary)
+        {
+            firstname = name;
+            Salary = salary; 
+        }
         public Droid(string name)
         {
-            firstname = name; 
+
+        }
+        public Droid()
+        {
+
         }
 
         public string GetFirstName()
