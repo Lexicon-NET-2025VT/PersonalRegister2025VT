@@ -1,41 +1,76 @@
-﻿namespace PersonalRegister2025VT
+﻿
+
+namespace PersonalRegister2025VT
 {
     internal class Program
     {
+        private static Payroll payroll = new Payroll();         
         static void Main(string[] args)
         {
-            //Employee emp = new Employee("Anders", 20000);
-            ////emp.Name = "Anders";
-            ////emp.Salary = 20000;
+            bool isAlive = true; 
+            do
+            {
+                Console.WriteLine("1: Add employee" +
+                    "\n2: Show employees" +
+                    "\nQ: Quit");
 
-            //Console.WriteLine($"Name: {emp.Name} Salary: {emp.Salary}");
-            ////Console.WriteLine("Name: " + emp.Name + " Salary: " + emp.Salary);
-            ////Console.WriteLine("Name: {0} Salary: {1}", emp.Name, emp.Salary);
-            //emp.Name = "Nisse";
-            //Console.WriteLine($"Name: {emp.Name} Salary: {emp.Salary}");
+                string input = Console.ReadLine().ToUpper();
 
-            Payroll payroll = new Payroll();
+                switch (input)
+                {
+                    case "1":
+                        AddEmployee(); 
+                        break;
+                    case "2":
+                        PrintEmployees();
+                        break;
+                    case "Q":
+                        //case "q":
+                        //Environment.Exit(0); 
+                        isAlive = false; 
+                        break; 
+                    default:
+                        break;
+                }
 
-            //Lägg till ny anställd
-            payroll.AddEmployee("Kalle", 20000);
-            payroll.AddEmployee("Anna", 25000);
-            //payroll.AddEmployee("Anna2", 25000);
-            //payroll.AddEmployee("Anna3", 25000);
-            //payroll.AddEmployee("Anna4", 25000);
-            //payroll.AddEmployee("Anna5", 25000);
-            //payroll.AddEmployee("Anna6", 25000);
-            //payroll.AddEmployee("Anna7", 25000);
-            //payroll.AddEmployee("Anna8", 25000);
+            } while (isAlive);
 
-            //Hämtar en samling av alla anställda
-            IEnumerable<Employee> employees = payroll.GetEmployees();
+        }
 
-            //Skriver ut alla anställda
-           foreach(Employee employee in employees)
+
+        private static void AddEmployee()
+        {
+            bool success = false;
+            string name;
+            int salary = 0;
+
+
+            do
+            {
+                Console.Write("Name: ");
+                name = Console.ReadLine();
+
+                if (string.IsNullOrWhiteSpace(name))
+                {
+                    Console.WriteLine("You must enter a valid name");
+                }
+                else
+                {
+                    success = true;
+                    Console.Write("Salary: ");
+
+                    int.TryParse(Console.ReadLine(), out salary); 
+                }
+
+            } while (!success);
+            payroll.AddEmployee(name, salary);
+        }
+        private static void PrintEmployees()
+        {
+            foreach (Employee employee in payroll.GetEmployees())
             {
                 Console.WriteLine($"Name: {employee.Name} Salary: {employee.Salary}");
             }
-
         }
     }
 }
