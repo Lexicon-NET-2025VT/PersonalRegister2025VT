@@ -40,19 +40,22 @@ namespace PersonalRegister2025VT
         //    get { return salary2; }
         //    set { salary2 = value; }
         //}
-        
+
+        public static int Count; 
+
         public Droid(string name, int salary)
         {
             firstname = name;
-            Salary = salary; 
+            Salary = salary;
+            Count++;
         }
         public Droid(string name)
         {
-
+            Count++;
         }
         public Droid()
         {
-
+            Count++; 
         }
 
         public string GetFirstName()
@@ -63,6 +66,12 @@ namespace PersonalRegister2025VT
         public void SetFirstName(string name)
         {
             firstname = name; 
+        }
+
+
+        public static void GetCount()
+        {
+            Console.WriteLine(Count);
         }
     }
 }
