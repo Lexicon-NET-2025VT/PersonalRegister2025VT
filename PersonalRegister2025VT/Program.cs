@@ -14,21 +14,19 @@ namespace PersonalRegister2025VT
             SeedData(); 
             do
             {
-                Console.WriteLine("1: Add employee" +
-                    "\n2: Show employees" +
-                    "\nQ: Quit");
+                MenuHelper.ShowMainMenu();
 
                 string input = Console.ReadLine().ToUpper();
 
                 switch (input)
                 {
-                    case "1":
+                    case MenuHelper.Add:
                         AddEmployee(); 
                         break;
-                    case "2":
+                    case MenuHelper.Print:
                         PrintEmployees();
                         break;
-                    case "Q":
+                    case MenuHelper.Quit:
                         //case "q":
                         //Environment.Exit(0); 
                         isAlive = false; 
