@@ -33,6 +33,7 @@ namespace PersonalRegister2025VT
                         isAlive = false; 
                         break; 
                     default:
+                        Console.WriteLine("Please select a valid choice!"); 
                         break;
                 }
 
