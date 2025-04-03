@@ -15,7 +15,7 @@ namespace PersonalRegister2025VT
             employees = new List<Employee>(); 
         }
 
-        internal void AddEmployee(string name, int salary)
+        internal void AddEmployee(string name, uint salary)
         {
             employees.Add(new Employee(name, salary)); 
         }
