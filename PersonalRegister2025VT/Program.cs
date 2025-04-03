@@ -10,6 +10,7 @@ namespace PersonalRegister2025VT
         private static Payroll payroll = new Payroll();         
         static void Main(string[] args)
         {
+
             bool isAlive = true;
             SeedData(); 
             do
@@ -50,7 +51,7 @@ namespace PersonalRegister2025VT
         {
             string name = Util.AskForString("Name");
             uint salary = Util.AskForUInt("Salary");
-            payroll.AddEmployee(name, salary);
+            payroll.AddEmployee(new Employee(name, salary));
         }
         private static void PrintEmployees()
         {
